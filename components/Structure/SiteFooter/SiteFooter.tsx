@@ -8,7 +8,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import cx from 'clsx';
 
-const data = [
+interface IFooterLinks {
+  title: string;
+  links: { label: string; link: string, target?: string }[];
+}
+
+const footerLinks: IFooterLinks[] = [
   {
     title: 'About',
     links: [
@@ -33,20 +38,21 @@ const data = [
     title: 'Community',
     links: [
       { label: 'Stronghold Coffee', link: '/stronghold_coffee' },
-      { label: 'Follow on Instagram', link: 'https://www.instagram.com/_fsc_fitness/' },
-      { label: 'Drop In', link: 'https://app.octivfitness.com/widget/schedule?isDropIn=true&publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583' },
-      { label: 'Sign Up', link: 'https://app.octivfitness.com/widget/sign-up?publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583' },
+      { label: 'Follow on Instagram', link: 'https://www.instagram.com/_fsc_fitness/', target: '_blank' },
+      { label: 'Drop In', link: 'https://app.octivfitness.com/widget/schedule?isDropIn=true&publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583', target: '_blank' },
+      { label: 'Sign Up', link: 'https://app.octivfitness.com/widget/sign-up?publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583', target: '_blank' },
     ],
   },
 ];
 
 export default function FooterLinks() {
-  const groups = data.map((group) => {
-    const links = group.links.map((link, index) => (
+  const groups = footerLinks.map((group) => {
+    const links = group.links.map((link) => (
       <Link
         key={link.label}
         href={link.link}
         className={cx(classes.link)}
+        target={link?.target || '_self'}
       >
         {link.label}
       </Link>

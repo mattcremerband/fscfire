@@ -79,7 +79,7 @@ export default function Hero() {
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const slides = data.map((item) => (
     <Carousel.Slide key={item.key}>
-      <Slide {...item} />
+      <Slide image={item.image} title={item.title} category={item.category} />
     </Carousel.Slide>
   ));
 
