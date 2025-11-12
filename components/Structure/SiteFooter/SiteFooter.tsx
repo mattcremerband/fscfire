@@ -1,16 +1,17 @@
-"use client";
-import { Text, Container, ActionIcon, Group, rem } from '@mantine/core';
-import { IconBrandInstagram } from '@tabler/icons-react';
-import logo from '../../../public/fsc_logo.png';
-import darkLogo from '../../../public/fsc_dark_logo.png';
-import classes from './SiteFooter.module.css';
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { IconBrandInstagram } from '@tabler/icons-react';
 import cx from 'clsx';
+import { ActionIcon, Container, Group, rem, Text } from '@mantine/core';
+import darkLogo from '../../../public/fsc_dark_logo.png';
+import logo from '../../../public/fsc_logo.png';
+import classes from './SiteFooter.module.css';
 
 interface IFooterLinks {
   title: string;
-  links: { label: string; link: string, target?: string }[];
+  links: { label: string; link: string; target?: string }[];
 }
 
 const footerLinks: IFooterLinks[] = [
@@ -38,9 +39,21 @@ const footerLinks: IFooterLinks[] = [
     title: 'Community',
     links: [
       { label: 'Stronghold Coffee', link: '/stronghold_coffee' },
-      { label: 'Follow on Instagram', link: 'https://www.instagram.com/_fsc_fitness/', target: '_blank' },
-      { label: 'Drop In', link: 'https://app.octivfitness.com/widget/schedule?isDropIn=true&publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583', target: '_blank' },
-      { label: 'Sign Up', link: 'https://app.octivfitness.com/widget/sign-up?publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583', target: '_blank' },
+      {
+        label: 'Follow on Instagram',
+        link: 'https://www.instagram.com/_fsc_fitness/',
+        target: '_blank',
+      },
+      {
+        label: 'Drop In',
+        link: 'https://app.octivfitness.com/widget/schedule?isDropIn=true&publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583',
+        target: '_blank',
+      },
+      {
+        label: 'Sign Up',
+        link: 'https://app.octivfitness.com/widget/sign-up?publicToken=8b2ab68457c118e71ba576089fd0e46ac3959583',
+        target: '_blank',
+      },
     ],
   },
 ];
@@ -90,12 +103,13 @@ export default function FooterLinks() {
 
         <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
           <ActionIcon
-              size="lg"
-              color="gray" 
-              variant="subtle"
-              component="a"
-              href="https://www.instagram.com/_fsc_fitness/"
-              target="_blank">
+            size="lg"
+            color="gray"
+            variant="subtle"
+            component="a"
+            href="https://www.instagram.com/_fsc_fitness/"
+            target="_blank"
+          >
             <IconBrandInstagram style={{ width: rem(24), height: rem(24) }} stroke={1.5} />
           </ActionIcon>
         </Group>

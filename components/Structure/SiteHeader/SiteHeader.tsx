@@ -1,23 +1,30 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
-import { Container, Group, Burger, useMantineColorScheme, useComputedColorScheme, ActionIcon } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import logo from '../../../public/fsc_logo.png';
-import darkLogo from '../../../public/fsc_dark_logo.png';
-import classes from './SiteHeader.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import cx from 'clsx';
 import { IconMoon, IconSun } from '@tabler/icons-react';
+import cx from 'clsx';
+import {
+  ActionIcon,
+  Burger,
+  Container,
+  Group,
+  useComputedColorScheme,
+  useMantineColorScheme,
+} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import darkLogo from '../../../public/fsc_dark_logo.png';
+import logo from '../../../public/fsc_logo.png';
+import classes from './SiteHeader.module.css';
 
 const links = [
-  { link: 'about', label: 'About' },
-  { link: 'training', label: 'Training' },
-  { link: 'membership', label: 'Membership' },
-  { link: 'schedule', label: 'Schedule' },
-  { link: 'fire', label: 'Fire' },
-  { link: 'contact', label: 'Contact' },
+  { link: '/about', label: 'About' },
+  { link: '/training', label: 'Training' },
+  { link: '/membership', label: 'Membership' },
+  { link: '/schedule', label: 'Schedule' },
+  { link: '/fire', label: 'Fire' },
+  { link: '/contact', label: 'Contact' },
 ];
 
 export default function HeaderSimple() {
