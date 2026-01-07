@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import Hero from '@/components/Hero/Hero';
 import { Container, Grid, Image, List, Text, ThemeIcon, Title } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';

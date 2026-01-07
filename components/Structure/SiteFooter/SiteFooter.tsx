@@ -19,7 +19,7 @@ const footerLinks: IFooterLinks[] = [
     title: 'About',
     links: [
       { label: 'Training', link: '/training' },
-      { label: 'Pricing', link: '/membership' },
+      { label: 'Membership', link: '/membership' },
       { label: 'Schedule', link: '/schedule' },
       { label: 'Fire', link: '/fire' },
       { label: 'Contact', link: '/contact' },
@@ -28,10 +28,9 @@ const footerLinks: IFooterLinks[] = [
   {
     title: 'Training',
     links: [
+      { label: 'Functional Fitness', link: '/training/functional_fitness' },
+      { label: 'Strength & Conditioning', link: '/training/strength_conditioning' },
       { label: 'Olympic Weightlifting', link: '/training/olympic_weightlifting' },
-      { label: 'Power Building', link: '/training/power_building' },
-      { label: 'Push Pull', link: '/training/push_pull' },
-      { label: 'Mobility', link: '/training/mobility' },
       { label: 'Calisthenics', link: '/training/calisthenics' },
     ],
   },

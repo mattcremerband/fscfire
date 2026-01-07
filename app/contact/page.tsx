@@ -1,16 +1,16 @@
-"use client";
-import { Button, Container, Group, List, SimpleGrid, Text, Textarea, TextInput } from '@mantine/core';
+'use client';
+
+import { Button, Container, Group, SimpleGrid, Textarea, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { useState } from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useGoogleReCaptcha } from '@google-recaptcha/react';
 import '../global.css';
-import classes from '../styles.module.css'
+import classes from '../styles.module.css';
 
-
-export default function AboutPage() {
+export default function ContactPage() {
   const [isBtnDisabled, setBtnDisabled] = useState(false);
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  //const googleReCaptcha = useGoogleReCaptcha();
 
   const form = useForm({
     initialValues: {
@@ -45,18 +45,14 @@ export default function AboutPage() {
     if (form.isValid()) {
       setBtnDisabled(true);
 
-      if (!executeRecaptcha) {
-        return;
-      }
-
       try {
-        const token: string = await executeRecaptcha();
-        if (!token) {
-          showNotification('Error', 'Failed to Send!', 'red');
-          return;
-        }
-
-        form.values.token = token;
+        //const token = await googleReCaptcha?.executeV3?.('action');
+        //if (!token) {
+        //  showNotification('Error', 'Failed to Send!', 'red');
+        //  return;
+        //}
+//
+        //form.values.token = token;
 
         const response = await fetch('/api/send-email', {
           method: 'POST',
@@ -67,6 +63,7 @@ export default function AboutPage() {
         });
 
         const result = await response.json();
+        console.log(result);
 
         if (result.status > 0) {
           showNotification(

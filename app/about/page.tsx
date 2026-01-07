@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <section className={classes.body}>
       <Container size="xl">
-      <h1>WHY FSC?</h1>
+        <h1>WHY FSC?</h1>
 
         <section className="basis-full">
           <p>

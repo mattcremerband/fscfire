@@ -1,7 +1,10 @@
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 
 import React from 'react';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
+import { GoogleReCaptchaProvider } from './google-recaptcha-provider';
 import { theme } from '../theme';
 import SiteHeader from '@/components/Structure/SiteHeader/SiteHeader';
 import SiteFooter from '@/components/Structure/SiteFooter/SiteFooter';
@@ -23,13 +26,16 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>
-          <SiteHeader />
-          
-          {children}
-          
-          <SiteFooter />
-        </MantineProvider>
+        <GoogleReCaptchaProvider type="v3" reCaptchaKey={process.env.GOOGLE_SITE_KEY}>
+          <MantineProvider theme={theme}>
+            <Notifications />
+            <SiteHeader />
+
+            {children}
+
+            <SiteFooter />
+          </MantineProvider>
+        </GoogleReCaptchaProvider>
       </body>
     </html>
   );

@@ -1,9 +1,7 @@
 'use client';
 
 import { Container, Table, Text } from '@mantine/core';
-
 import '../global.css';
-
 import classes from '../styles.module.css';
 
 const ff = 'Functional Fitness';
@@ -150,7 +148,7 @@ const rowsCols = schedule.map((rows: any, rowKey: any) => (
   </Table.Tr>
 ));
 
-export default function AboutPage() {
+export default function SchedulePage() {
   return (
     <section className={classes.body}>
       <Container size="xl">
